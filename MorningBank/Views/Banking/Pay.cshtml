@@ -1,0 +1,43 @@
+﻿@model MorningBank.Models.ViewModels.PayBills
+
+@{
+    ViewBag.Title = "Pay";
+}
+
+<h2>Pay</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Enter the ID of the Bill to be paid</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group"> 
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.selectedBill, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.selectedBill, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Pay" class="btn btn-default" />
+            </div>
+            <div class="col-md-offset-2 col-md-10 text-info">
+                @ViewBag.Message
+            </div>
+        </div>
+        
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MyBank">
+  <DataContextMoniker Name="/MyBankDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a968aa3c-ec2c-4e1e-83f3-0bde9556f08b" absoluteBounds="1.25, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MyBankDataContext/SavingAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2c7c9ef-fb0a-4801-9769-059b19cb38a1" absoluteBounds="1.2649999999999997, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3a7c899-4b03-404a-a920-5d8ef34963b2" absoluteBounds="4.25, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MyBankDataContext/CheckingAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b78b5321-73f2-4a05-998f-6c2c99e2917d" absoluteBounds="4.265, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="87755b3b-adaa-484c-8f22-1716844fd440" absoluteBounds="1.25, 4.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MyBankDataContext/TransactionHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3515fd36-ec25-4bc8-8d33-40e5277f75bf" absoluteBounds="1.2650000000000006, 4.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.95312625 : 2.1362939453125); (1.95312625 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyBankDataContext/SavingAccount/SavingAccount_TransactionHistory" />
+      <nodes>
+        <classShapeMoniker Id="a968aa3c-ec2c-4e1e-83f3-0bde9556f08b" />
+        <classShapeMoniker Id="87755b3b-adaa-484c-8f22-1716844fd440" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.34375 : 2.1362939453125); (4.34375 : 4.84699625651042); (3.25 : 4.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MyBankDataContext/CheckingAccount/CheckingAccount_TransactionHistory" />
+      <nodes>
+        <classShapeMoniker Id="d3a7c899-4b03-404a-a920-5d8ef34963b2" />
+        <classShapeMoniker Id="87755b3b-adaa-484c-8f22-1716844fd440" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f75acfca-5f89-45df-8c10-98fc316c36b3" absoluteBounds="4.875, 3.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/MyBankDataContext/TransactionType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dfdbadac-0f7a-4279-827f-241983845826" absoluteBounds="4.89, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 3.7812475); (2.7812525 : 3.7812475); (2.7812525 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MyBankDataContext/TransactionType/TransactionType_TransactionHistory" />
+      <nodes>
+        <classShapeMoniker Id="f75acfca-5f89-45df-8c10-98fc316c36b3" />
+        <classShapeMoniker Id="87755b3b-adaa-484c-8f22-1716844fd440" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="aeb09eba-0650-4c32-8889-e9ec58da1741" absoluteBounds="4.5, 5.125, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/MyBankDataContext/BillPayment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d62e14a8-dfb0-422d-9447-f9c5f58bbd18" absoluteBounds="4.515, 5.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dfd8ba28-e313-462b-ad33-8d69a317c34a" absoluteBounds="7.375, 1.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MyBankDataContext/Loan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4874319-efaf-4eb6-bdb9-5adcf320930d" absoluteBounds="7.3900000000000006, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

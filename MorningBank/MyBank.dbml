@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyBank" Class="MyBankDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ANITAGEORGEA45E\SQLEXPRESS;Initial Catalog=MyBank;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MYBANK" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SavingAccounts" Member="SavingAccounts">
+    <Type Name="SavingAccount">
+      <Column Name="Username" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="SavingAccountNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="SavingAccount_TransactionHistory" Member="TransactionHistories" ThisKey="SavingAccountNumber" OtherKey="SavingAccountNumber" Type="TransactionHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CheckingAccounts" Member="CheckingAccounts">
+    <Type Name="CheckingAccount">
+      <Column Name="Username" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="CheckingAccountNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="CheckingAccount_TransactionHistory" Member="TransactionHistories" ThisKey="CheckingAccountNumber" OtherKey="CheckingAccountNumber" Type="TransactionHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransactionHistories" Member="TransactionHistories">
+    <Type Name="TransactionHistory">
+      <Column Name="TransactionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TransactionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CheckingAccountNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SavingAccountNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TransactionFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TransactionTypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="SavingAccount_TransactionHistory" Member="SavingAccount" ThisKey="SavingAccountNumber" OtherKey="SavingAccountNumber" Type="SavingAccount" IsForeignKey="true" />
+      <Association Name="CheckingAccount_TransactionHistory" Member="CheckingAccount" ThisKey="CheckingAccountNumber" OtherKey="CheckingAccountNumber" Type="CheckingAccount" IsForeignKey="true" />
+      <Association Name="TransactionType_TransactionHistory" Member="TransactionType" ThisKey="TransactionTypeId" OtherKey="TransactionTypeId" Type="TransactionType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransactionType" Member="TransactionTypes">
+    <Type Name="TransactionType">
+      <Column Name="TransactionTypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TransactionTypeName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="TransactionType_TransactionHistory" Member="TransactionHistories" ThisKey="TransactionTypeId" OtherKey="TransactionTypeId" Type="TransactionHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillPayment" Member="BillPayments">
+    <Type Name="BillPayment">
+      <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BillName" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loan" Member="Loans">
+    <Type Name="Loan">
+      <Column Name="LoanId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoanName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LoanAmt" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

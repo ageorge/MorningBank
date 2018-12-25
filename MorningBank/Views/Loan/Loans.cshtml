@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MorningBank.Loan>
+
+@{
+    ViewBag.Title = "Loans";
+}
+
+<h2>Loans</h2>
+
+<p>
+    @Html.ActionLink("Apply for a new Loan", "Apply")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+    </tr>
+}
+
+</table>

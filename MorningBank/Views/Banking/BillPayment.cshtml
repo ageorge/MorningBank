@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MorningBank.BillPayment>
+
+@{
+    ViewBag.Title = "BillPayment";
+}
+
+<h2>BillPayment</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillID)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.BillName)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+    }
+
+</table>
